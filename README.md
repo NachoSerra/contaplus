@@ -48,6 +48,6 @@ Es necesario cambiar las variables **SERVER_origen**, **DATABASE_origen**, **USE
 * PASSWORD: Contraseña del usuario con el que se va a conectar a Odoo.
 
 Una vez guardados los cambios en los dos ficheros, los ejecutaremos en este orden mediante la siguiente línea de comando:
-*`python import_cuentas_peek.py`
-*`python import_asientos_peek.py`
+* `python import_cuentas_peek.py`
+* `python import_asientos_peek.py`
 
