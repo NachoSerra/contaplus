@@ -10,8 +10,8 @@ import vatnumber
 
 SERVER_origen = 'http://localhost:8069'
 DATABASE_origen = 'base_de_datos'
-USERNAME = 'username'
-PASSWORD = 'password'
+USERNAME = 'usuario'
+PASSWORD = 'contraseña'
 
 debug = True
 
@@ -45,7 +45,7 @@ def decodeCIF(originalCIF):
         return originalCIF
 
 def importar():
-    dbf = ydbf.open(os.path.join('dbf2', 'Subcta.dbf'), encoding='latin-1')
+    dbf = ydbf.open(os.path.join('dbf', 'Subcta.dbf'), encoding='latin-1')
     for row in dbf:
 
         # PARA PROVEEDORES
@@ -81,12 +81,6 @@ def importar():
             partner_obj = origen.model(name='res.partner')
             if not partner_obj.browse([('name','=',row['TITULO'])]):
                 partner = partner_obj.create(partner)
-
-
-
-
-
-
 
         # PARA CLIENTES
 
@@ -128,9 +122,12 @@ def importar():
         # CREACIÓN DE CUENTAS
 
         account_obj = origen.model(name='account.account')
-        accounts = account_obj.browse([("code", "like", row['COD'][0:2])])
+        accounts = account_obj.browse([("code", "=", row['COD'][0:2]+'0000')])
+        if not accounts:
+            accounts = account_obj.browse([("code", "like", row['COD'][0:2])])
+
         account = {
-                'name': row['TITULOL'].strip() or row['TITULO'],
+                'name': row['TITULO'].strip(),
                 'code': row['COD'],
                 'user_type_id': accounts[0].user_type_id.id or 1,
                 'reconcile': accounts[0].reconcile
