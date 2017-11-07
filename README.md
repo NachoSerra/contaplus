@@ -6,6 +6,7 @@ Importación de datos de Contaplus a Odoo 10.
 
 * Instalar ydbf: [ydbf](https://github.com/y10h/ydbf/blob/master/setup.py)
 * Instalar erppeek: `pip install erppeek`
+* Crear una carpeta llamada **dbf** en el lugar donde se vayan a ejecutar los scripts y dejar dentro los .dbf de contaplus
 
 ### Datos que se importarán a Odoo
 
