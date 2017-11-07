@@ -1,6 +1,6 @@
 # Contaplus
 
-Importación de datos de Contaplus a Odoo.
+Importación de datos de Contaplus a Odoo 10.
 
 ### Requisitos iniciales
 
@@ -9,12 +9,16 @@ Importación de datos de Contaplus a Odoo.
 
 ### Datos que se importarán a Odoo
 
-Los datos que importa el script son los siguientes:
+Los datos que importa el script **import_cuentas_peek** son los siguientes:
 * Cuentas contables
 * Clientes (Nombre, dirección y NIF)
 * Proveedores (Nombre, dirección y NIF)
 
-### Ejecución de script import_cuentas_peek.py
+Los datos que importa el script **import_asientos_peek** son los siguientes:
+* Asientos contables
+* Líneas de los asientos
+
+### Ejecución de scripts
 
 ```
 #-*- coding: utf-8 -*-
@@ -43,5 +47,7 @@ Es necesario cambiar las variables **SERVER_origen**, **DATABASE_origen**, **USE
 * USERNAME: Usuario con el que se va a conectar a Odoo (por ejemplo admin).
 * PASSWORD: Contraseña del usuario con el que se va a conectar a Odoo.
 
-Por último guardaremos los cambios y ejecutaremos el script mediante el comando `python import_cuentas_peek.py`
+Una vez guardados los cambios en los dos ficheros, los ejecutaremos en este orden mediante la siguiente línea de comando.
+`python import_cuentas_peek.py`
+`python import_asientos_peek.py`
 
